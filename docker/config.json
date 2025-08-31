@@ -1,0 +1,15 @@
+{
+  "db directory": "/home/clamav/.cvdupdate/database",
+  "log directory": "/tmp/cvdupdate-logs",
+  "state file": "/home/clamav/.cvdupdate/state.json",
+  "nameserver": "8.8.8.8",
+  "rotate logs": false,
+  "rotate cdiffs": false,
+  "# logs to keep": 1,
+  "# cdiffs to keep": 0,
+  "dbs": {
+    "main.cvd": { "url": "https://database.clamav.net/main.cvd" },
+    "daily.cvd": { "url": "https://database.clamav.net/daily.cvd" },
+    "bytecode.cvd": { "url": "https://database.clamav.net/bytecode.cvd" }
+  }
+}

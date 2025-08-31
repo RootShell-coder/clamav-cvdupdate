@@ -1,0 +1,31 @@
+{
+    "dbs": {
+        "main.cvd": {
+            "retry after": 0,
+            "url": "https://database.clamav.net/main.cvd",
+            "local version": 0,
+            "DNS field": 1,
+            "last modified": 0,
+            "last checked": 0,
+            "CDIFFs": []
+        },
+        "daily.cvd": {
+            "retry after": 0,
+            "url": "https://database.clamav.net/daily.cvd",
+            "local version": 0,
+            "DNS field": 2,
+            "last modified": 0,
+            "last checked": 0,
+            "CDIFFs": []
+        },
+        "bytecode.cvd": {
+            "retry after": 0,
+            "url": "https://database.clamav.net/bytecode.cvd",
+            "local version": 0,
+            "DNS field": 7,
+            "last modified": 0,
+            "last checked": 0,
+            "CDIFFs": []
+        }
+    }
+}

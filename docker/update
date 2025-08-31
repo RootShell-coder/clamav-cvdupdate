@@ -1,0 +1,26 @@
+#!/bin/sh
+
+export CVD_CONFIGDIR=$HOME/.cvdupdate
+mkdir -p $CVD_CONFIGDIR
+mkdir -p /tmp/cvdupdate-logs
+
+update_mirror_config() {
+    local mirror=${CLAMAV_MIRROR:-"https://database.clamav.net"}
+    echo "$(date) - Using mirror: $mirror"
+    sed -i "s|https://[^/]*/|${mirror}/|g" $CVD_CONFIGDIR/config.json
+    sed -i "s|https://[^/]*/|${mirror}/|g" $CVD_CONFIGDIR/state.json
+}
+
+while true; do
+    echo "$(date) - Starting cvdupdate"
+    update_mirror_config
+    cvd update
+    if [ -f /tmp/cvdupdate-logs/*.log ]; then
+        echo "$(date) - Log output:"
+        cat /tmp/cvdupdate-logs/*.log 2>/dev/null || true
+        rm -f /tmp/cvdupdate-logs/*.log 2>/dev/null || true
+    fi
+
+    echo "$(date) - Update finished. Sleeping 6 hours..."
+    sleep 21600
+done

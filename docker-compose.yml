@@ -1,0 +1,45 @@
+---
+services:
+
+  cvdupdate:
+    image: ghcr.io/rootshell-coder/clamav-cvdupdate:latest
+    restart: always
+    volumes:
+      - ./database:/home/clamav/.cvdupdate/database
+    networks:
+      - clamav-net
+    healthcheck:
+      test: ["CMD", "test", "-f", "/home/clamav/.cvdupdate/database/index.html"]
+      interval: 30m
+      timeout: 10s
+      retries: 3
+      start_period: 5m
+
+  nginx:
+    image: nginx:alpine
+    container_name: clamav-nginx
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./database:/usr/share/nginx/html:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - cvdupdate
+    networks:
+      - clamav-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/dns.txt"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  clamav-net:
+    name: clamav-net
+    driver: bridge
+
+volumes:
+  clamav-data:
+    driver: local
