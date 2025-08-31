@@ -13,7 +13,7 @@ A containerized solution for maintaining and serving ClamAV antivirus databases 
 - 🔧 **Configurable Mirrors**: Support for multiple ClamAV mirror sources
 - 📊 **Health Checks**: Built-in health monitoring for both services
 - 🚀 **Production Ready**: Optimized configurations for production use
-- 📁 **Multiple Formats**: Supports both .cvd and .cld database formats
+- 📁 **CVD Format**: Supports ClamAV signature databases in CVD format
 
 ## Quick Start
 
@@ -99,7 +99,6 @@ The following ClamAV database files are automatically maintained:
 | `main.cvd` | Main virus signatures | CVD |
 | `daily.cvd` | Daily updates | CVD |
 | `bytecode.cvd` | Bytecode signatures | CVD |
-| `*.cld` | Compressed databases | CLD |
 
 ## Usage Examples
 
