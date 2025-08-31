@@ -1,2 +1,3 @@
 *.cvd
 *.txt
+.env
