@@ -4,6 +4,7 @@ A containerized solution for maintaining and serving ClamAV antivirus databases 
 
 [![Docker](https://img.shields.io/badge/Docker-20.10%2B-blue)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Build and check image](https://github.com/RootShell-coder/clamav-cvdupdate/actions/workflows/docker.yml/badge.svg?branch=master)](https://github.com/RootShell-coder/clamav-cvdupdate/actions/workflows/docker.yml)
 
 ## Features
 
